@@ -1,0 +1,1 @@
+﻿SELECT PlayerName as Name, ROUND(((AmountOfCards*AmountOfCards) / (Seconds*Attempts)) *1000,2) AS Score, AmountOfCards as Cards,  Seconds, Attempts, DateTime AS Date FROM MemoryRecords ORDER by Score DESC
