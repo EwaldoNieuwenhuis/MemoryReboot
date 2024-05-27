@@ -9,8 +9,8 @@ namespace BusinessMemory
 {
     public static class GameRules
     {
-        public const int MinCards = 2;
-        public const int MaxCards = 102;
+        public const int MinCards = 10;
+        public const int MaxCards = 60;
         /// <summary>
         /// Checks if a string has the value of the right number of selected cards
         /// </summary>

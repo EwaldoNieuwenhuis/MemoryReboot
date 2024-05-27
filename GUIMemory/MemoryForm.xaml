@@ -14,8 +14,14 @@
         </Grid>
         <Image HorizontalAlignment="Left" Height="48" Margin="10,2,0,0" VerticalAlignment="Top" Width="48" Source="/timer-icon.png"/>
 
-        <Label x:Name="Timer_Label" Content="Timer: " Height="40" Margin="67,6,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="18" HorizontalAlignment="Left"/>
-        <Label x:Name="Attempts_Label" Content="Attempts: 0" Height="40" Margin="238,6,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="18" HorizontalAlignment="Left" RenderTransformOrigin="-1.81,0.321" IsEnabled="False"/>
-        <Label x:Name="Cards_Label" Content="Cards: " Height="40" Margin="414,6,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="18" HorizontalAlignment="Left" RenderTransformOrigin="-1.81,0.321"/>
+        <Label x:Name="Timer_Label" Content="{Binding Seconds}" Height="40" Margin="67,6,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="18" HorizontalAlignment="Left"/>
+        <Label x:Name="Seconds_Label" Content="Seconds" Height="40" Margin="102,6,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="18" HorizontalAlignment="Left"/>
+
+        <Label x:Name="Attempts_Label" Content="{Binding Attempts}" Height="40" Margin="238,6,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="18" HorizontalAlignment="Left" RenderTransformOrigin="-1.81,0.321"/>
+        <Label x:Name="AttemptsText_Label" Content="Attempts" Height="40" Margin="296,6,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="18" HorizontalAlignment="Left" RenderTransformOrigin="-1.81,0.321"/>
+
+        <Label x:Name="Cards_Label" Content="{Binding AmountOfCards}" Height="40" Margin="414,6,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="18" HorizontalAlignment="Left" RenderTransformOrigin="-1.81,0.321"/>
+        <Label x:Name="CardsText_Label" Content="Cards" Height="40" Margin="454,6,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="18" HorizontalAlignment="Left" RenderTransformOrigin="-1.81,0.321"/>
+
     </Grid>
 </Window>

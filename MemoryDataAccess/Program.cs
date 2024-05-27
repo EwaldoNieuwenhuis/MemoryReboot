@@ -54,7 +54,6 @@ foreach (var pair in sortedTable)
     Console.Write($"│ {pair.Key,-9}");
 }
 Console.Write($"│ Score |");
-
 Console.WriteLine();
 //Console.WriteLine("├──────────┼──────────┤");
 for (int i = 0; i < maxLength; i++)

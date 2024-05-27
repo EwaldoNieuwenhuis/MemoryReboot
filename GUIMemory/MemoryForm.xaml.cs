@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,8 +21,11 @@ namespace GUIMemory
     /// <summary>
     /// Interaction logic for MemoryForm.xaml
     /// </summary>
-    public partial class MemoryForm : Window
+    public partial class MemoryForm : Window, INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         MemoryCard<BitmapImage>[][] Grid { get; }
         private int _attempts;
         public int Attempts
@@ -32,9 +36,7 @@ namespace GUIMemory
                 if (_attempts != value)
                 {
                     _attempts = value;
-
-                    // Update label when Attempts is set
-                    Attempts_Label.Content = $"Attempts: {_attempts}";
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Attempts)));
                 }
             }
         }
@@ -48,9 +50,7 @@ namespace GUIMemory
                 if (_amountOfCards != value)
                 {
                     _amountOfCards = value;
-
-                    // Update label when AmountOfCards is set
-                    Cards_Label.Content = $"Cards: {_amountOfCards}";
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AmountOfCards)));
                 }
             }
         }
@@ -66,14 +66,13 @@ namespace GUIMemory
                 if (_seconds != value)
                 {
                     _seconds = value;
-
-                    // Update label when Seconds is set
-                    Timer_Label.Content = $"Time: {_seconds} seconds";
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Seconds)));
                 }
             }
         }
 
         private int _cardsGuessed;
+
         public int CardsGuessed
         {
             get { return _cardsGuessed; }
@@ -96,7 +95,7 @@ namespace GUIMemory
             
             TableRankings form = new TableRankings(AmountOfCards, Seconds, Attempts, date);
             form.Show();
-            this.Close();
+            Close();
         }
 
         private double CalculateScore()
@@ -148,6 +147,8 @@ namespace GUIMemory
 
             MemoryTimer.Elapsed += SetTime;
             MemoryTimer.Start();
+            this.DataContext = this;
+
 
         }
 
